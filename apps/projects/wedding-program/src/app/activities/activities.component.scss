@@ -1,0 +1,17 @@
+@import "../../styles.scss";
+
+.description {
+  font-family: 'Poppins', sans-serif;
+  margin: auto 5%;
+}
+
+.b-w-photo {
+  filter: grayscale(100%);
+  max-width: 500px;
+  width: 100%;
+}
+
+.bold {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}

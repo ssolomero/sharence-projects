@@ -1,0 +1,20 @@
+@import '../../styles.scss';
+
+.heart {
+	animation: beat .5s infinite alternate;
+	transform-origin: center;
+}
+
+.menu {
+  height: 40px;
+  width: 40px;
+}
+
+.placeholder-div {
+  opacity: 0;
+}
+
+/* Heart beat animation */
+@keyframes beat{
+	to { transform: scale(1.1); }
+}

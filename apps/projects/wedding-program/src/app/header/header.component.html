@@ -1,0 +1,15 @@
+<div class="container px-4">
+  <div class="my-5 d-flex" 
+    [ngClass]="{'justify-content-between':showMenu, 'justify-content-center':!showMenu}" 
+    routerLink="/wedding">
+    <div *ngIf="showMenu" class="placeholder-div">
+      <img class="menu" src="../../assets/menu_FILL0_wght400_GRAD0_opsz48 (1).svg" alt="">
+    </div>
+    <div class="heart text-center">
+      <img src="../../assets/favorite_FILL1_wght400_GRAD0_opsz48.svg" alt="">
+    </div>
+    <div *ngIf="showMenu" class="slidein-from-right">
+      <img class="menu" src="../../assets/menu_FILL0_wght400_GRAD0_opsz48 (1).svg" alt="">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<div class="container text-center mb-4">
+  <div class="header">festivities</div>
+  <div class="accordion" id="accordion">
+
+    <div *ngFor="let activity of activities; index as i" class="accordion-item">
+      <h2 class="accordion-header" id="heading{{i}}">
+        <button class="accordion-button subhead text-center collapsed" type="button" 
+          data-bs-toggle="collapse" attr.data-bs-target="#collapse{{i}}" 
+          aria-expanded="true" attr.aria-controls="collapse{{i}}">
+          {{activity.name}}
+        </button>
+      </h2>
+      <div id="collapse{{i}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{i}}" data-bs-parent="#accordion">
+        <div *ngFor="let content of activity.content" class="accordion-body">
+          <div *ngIf="content.type === 'img'; then imgBlock else textBlock"></div>
+          <ng-template #imgBlock>
+            <div><img src="{{content.src}}" alt="" class="{{content.classes}}"></div>
+          </ng-template>
+          <ng-template #textBlock>
+            <div class="{{content.classes}}">{{content.text}}</div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

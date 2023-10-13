@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<div class="container text-center">
+  <div class="nav-menu slidein-from-left" *ngFor="let navItem of navItems">
+    <div routerLink="{{navItem.route}}" class="nav-item my-4 d-flex">{{navItem.title}}</div>
+  </div>
+</div>
+
+<div id="footer">
+  <a 
+    href="https://open.spotify.com/playlist/7tz6KzzDssdpZMxKHYFoD3?si=c0b8f17760384dbd"
+    style="text-decoration: none; color: slategray;"
+  >
+    #solonomore
+  </a>
+</div>

@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="container text-center">
+  <div class="header">{{sigCocks.title}}</div>
+  <div class="mb-4" *ngFor="let cock of sigCocks.items">
+    <div class="subhead">{{cock.name}}</div>
+    <div>{{cock.description}}</div>
+  </div>
+  <div class="header mt-5">{{otherDrinks.title}}</div>
+  <div class="mb-4" *ngFor="let category of otherDrinks.items">
+    <div class="subhead mb-3">{{category.name}}</div>
+    <div class="mb-3" *ngFor="let option of category.options">
+      <div class="body">{{option.name}}</div>
+      <div class="description">{{option.brand}}</div>
+    </div>
+    </div>
+  <div class="my-5" style="font-size: small; font-family: 'Poppins', sans-serif;">*please drink responsibly</div>
+</div>

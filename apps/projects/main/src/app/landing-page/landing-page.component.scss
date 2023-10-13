@@ -6,6 +6,10 @@
 .info {
   padding: 0 5em;
   margin-top: 17em;
+
+  @media (max-width: 767.98px) { 
+    margin: 17em auto;
+  }
 }
 
 #project-list {

@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<div class="container text-center mb-5">
+  <div class="header">menu</div>
+
+  <div class="mb-5">
+    <div class="subhead">{{menu.smallBites.title}}</div>
+    <div *ngFor="let app of menu.smallBites.items" class="mb-3">
+      <div>{{app.name}}</div>
+      <div class="description">{{app.description}}</div>
+    </div>
+  </div>
+
+  <div class="mb-5">
+    <div class="subhead">{{menu.salads.title}}</div>
+    <div *ngFor="let salad of menu.salads.items" class="mb-3">
+      <div>{{salad.name}}</div>
+      <div class="description">{{salad.description}}</div>
+    </div>
+  </div>
+
+
+  <div class="mb-5">
+    <div class="subhead">{{menu.mains.title}}</div>
+    <div *ngFor="let entree of menu.mains.items" class="mb-3">
+      <div>{{entree.name}}</div>
+      <div class="description">{{entree.description}}</div>
+    </div>
+  </div>
+
+  <div class="mb-5">
+    <div class="subhead">{{menu.sides.title}}</div>
+    <div *ngFor="let side of menu.sides.items" class="">
+      <div class="">{{side.name}}</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <div class="subhead">{{menu.desserts.title}}</div>
+    <div *ngFor="let dessert of menu.desserts.items" class="">
+      <div class="">{{dessert.name}}</div>
+    </div>
+  </div>
+
+
+</div>
