@@ -1,10 +1,9 @@
 # sharence-projects
 
 # TODO: 
-
-# Calendly
+-- calendly
 touch start date when selected in mobile
 use directive for confirm button 
 
-# Wedding
+-- wedding app
 styling in wedding app
