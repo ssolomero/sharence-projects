@@ -123,7 +123,7 @@ export class WordleComponent implements OnInit, AfterViewChecked{
 
   onKeyPress(event: KeyboardEvent, letterNum: number) {
     // Backspace/Delete Key
-    if (event.keyCode == 8 || event.keyCode == 66) {
+    if (event.keyCode == 8 || event.keyCode == 67) {
       let attemptRow = document.getElementsByClassName('attempt-row-'+this.numOfAttempts);
       console.log(attemptRow[letterNum]);
       let prevElem;
@@ -142,7 +142,7 @@ export class WordleComponent implements OnInit, AfterViewChecked{
     }
 
     // Enter/Return Key
-    if (event.keyCode == 13 || event.keyCode == 67) {
+    if (event.keyCode == 13 || event.keyCode == 66) {
       // Check to see if last letter is filled
       let input = document.getElementsByClassName('attempt-row-'+this.numOfAttempts)[this.numOfLetters-1] as HTMLInputElement;
       if (input.value) {
