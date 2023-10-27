@@ -125,16 +125,15 @@ export class WordleComponent implements OnInit, AfterViewChecked{
     // Backspace/Delete Key
     if (event.keyCode == 8 || event.keyCode == 67) {
       let attemptRow = document.getElementsByClassName('attempt-row-'+this.numOfAttempts);
-      console.log(attemptRow[letterNum]);
       let prevElem;
       let currentElem = event.target as HTMLInputElement;
-      console.log(currentElem.value);
       if (letterNum >= this.numOfLetters-1 && currentElem.value != '') {
         prevElem = attemptRow[letterNum] as HTMLInputElement;
       } else {
         prevElem = attemptRow[letterNum-1] as HTMLInputElement;
         if (prevElem != undefined) {
           prevElem.disabled = false;
+          prevElem.value = '';
           prevElem?.focus();
           currentElem.disabled = true;
         }
