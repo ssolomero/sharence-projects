@@ -269,6 +269,7 @@ font-weight: 300;
   }
   .fc-daygrid-day-number {
       margin: auto;
+      text-decoration: none;
   }
   .fc-day-today {
       background-color: ghostwhite;
@@ -278,6 +279,9 @@ font-weight: 300;
   }
   .fc--button {
     display: none;
+  }
+  .fc-col-header-cell-cushion {
+    text-decoration: none;
   }
 }
 

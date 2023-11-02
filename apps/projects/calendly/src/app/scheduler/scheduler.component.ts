@@ -26,9 +26,8 @@ export class SchedulerComponent implements OnInit, AfterViewChecked {
       right: 'prev, next'
     },
     plugins: [dayGridPlugin, interactionPlugin],
-    select: (info) => {
-      this.onSelect(info);
-    }
+    select: (info) => {this.onSelect(info);},
+    dateClick: (info) => {this.onSelect(info);}
   }
 
   meetingDetails:any = {
@@ -75,15 +74,19 @@ export class SchedulerComponent implements OnInit, AfterViewChecked {
 
     this.dateSelected = `${days[daySelected.getDay()]}, ${months[daySelected.getMonth()]} ${daySelected.getDate()}`
 
+    const containerDiv = document.getElementsByClassName("container")[0];
+    const calendlySectionDiv = document.getElementById("calendar-section");
+
     if (daySelected >= currentDay) {
       this.showTimes = true;
-    } else {alert("Sorry that date has already past. Please select another date.");}
-
-    const containerDiv = document.getElementsByClassName("container")[0];
-    containerDiv.classList.add("time-div-active");
-
-    const calendlySectionDiv = document.getElementById("calendar-section");
-    calendlySectionDiv!.style.flex = "2";
+      containerDiv.classList.add("time-div-active");
+      calendlySectionDiv!.style.flex = "2";
+    } else {
+      this.showTimes = false;
+      containerDiv.classList.remove("time-div-active");
+      calendlySectionDiv!.style.flex = "1";
+      alert("Sorry that date has already past. Please select another date.");
+    }
   }
 
   onSelectTime(event:any) {

@@ -9,13 +9,25 @@
 }
 
 // Input Tiles
+.letter-input {
+  padding: 5px;
+  margin: 5px;
+  width: 52px;
+  height: 52px;
+  font-weight: 600;
+  text-align: center;
+  caret-color: transparent;
+  background-color: whitesmoke;
+  border: none;
+}
+
 .correct {
   background-color: #11365f;
   transition: transform 2s;
   transform: rotateX(360deg);
 }
 .close {
-  background-color: #7ad1e2;
+  background-color: lightsalmon;
   transition: transform 2s;
   transform: rotateX(360deg);
 }
@@ -26,18 +38,6 @@
 }
 .filled {
   color: white;
-}
-
-.letter-input {
-  padding: 5px;
-  margin: 5px;
-  width: 52px;
-  height: 52px;
-  font-weight: 600;
-  text-align: center;
-  caret-color: transparent;
-  border: none;
-
 }
 
 #popup {
@@ -86,6 +86,12 @@
   z-index: 1; /* Add a z-index if needed */
   left: 50%; /* Center the snackbar */
   bottom: 50%; /* 30px from the bottom */
+}
+
+.instructions {
+  color: gray;
+  padding: 0;
+  font-size: 12px;
 }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
