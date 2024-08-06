@@ -8,8 +8,8 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // must go before pl
 // Sub Applications
 import { WordleAppSharedModule } from '../../../wordle/src/app/app.module';
 import { CalendlyAppSharedModule } from '../../../calendly/src/app/app.module';
+import { MustWatchAppSharedModule } from '../../../must-watch/src/app/app.module';
 import { LandingPageComponent } from './landing-page/landing-page.component'
-
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component'
     AppRoutingModule,
     FullCalendarModule,
     WordleAppSharedModule.forRoot(),
-    CalendlyAppSharedModule.forRoot()
+    CalendlyAppSharedModule.forRoot(),
+    MustWatchAppSharedModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

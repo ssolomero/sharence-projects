@@ -21,13 +21,15 @@
   </div>
 </div>
 
-<div class="instructions container mt-5 d-flex justify-content-center">
+<div *ngIf="wordleArr.length > 0" class="instructions container mt-5 d-flex justify-content-center">
   <div>
-    <div>Instructions</div>
-    <ol>
-      <li>Guess a word</li>
-      <li>Blue = correct, <br> Orange = close but in wrong spot, <br>Gray = wrong</li>
-    </ol>
+    <div>Guess the 5 letter word!</div>
+    <br>
+    <div>
+      🟦 = correct<br>
+      🟧 = close, wrong spot<br>
+      ⬜ = wrong
+    </div>
   </div>
 </div>
 
@@ -35,7 +37,7 @@
 
 <div #popup id="popup" class="row d-flex justify-content-center">
   <div class="container">
-    <div class='mb-4'>{{wordle}}</div>
+    <div>{{wordle}}</div>
     <div class="guesses-str">{{guessesStr}}</div>
     <button class="mt-4"(click)="shareScore()">Copy and Share your score</button>
   </div>

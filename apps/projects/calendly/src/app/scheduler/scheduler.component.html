@@ -1,34 +1,33 @@
 <div class="container">
 
   <section class="description-section">
-    <ng-container *ngIf="schedulerView != 'CONFIRM'; else confirmBlock">
+    <ng-container>
       <button *ngIf="schedulerView === 'REGISTER'" class="back-btn align-items-center" 
         (click)="schedulerView = 'CALENDAR'; showTimes = false;">
         <img class="arrow-icon" src="../../assets/arrow.svg" alt="back-arrow">
       </button>
-      <h4 id="scheduler">{{meetingDetails.scheduler}}</h4> 
-      <h2 id="event">{{meetingDetails.event}}</h2>
-      <div class="icon-text-div">
-        <img src="../../assets/clock.svg" alt="clock-icon">
-        <h4 id="duration">{{meetingDetails.duration}} min</h4>
+      <div class="details-section">
+        <h4 id="scheduler">{{meetingDetails.scheduler}}</h4> 
+        <h2 id="event">{{meetingDetails.event}}</h2>
+        <div class="icon-text-div">
+          <img src="../../assets/clock.svg" alt="clock-icon">
+          <h4 id="duration">{{meetingDetails.duration}} min</h4>
+        </div>
+        <div class="icon-text-div" *ngIf="schedulerView === 'REGISTER' || schedulerView === 'CONFIRM'">
+          <img src="../../assets/calendar.svg" alt="calendar-icon">
+          <h4 id="event-time-stamp">{{meetingDetails.startTimeTxt}} on {{meetingDetails.date}}</h4>
+        </div>
+        <p id=description class="mt-3">{{meetingDetails.description}}</p>
       </div>
-      <div class="icon-text-div" *ngIf="schedulerView === 'REGISTER'">
-        <img src="../../assets/calendar.svg" alt="calendar-icon">
-        <h4 id="event-time-stamp">9:00am, Monday, July 13, 2020</h4>
-      </div>
-      <p id=description class="mt-3">{{meetingDetails.description}}</p>
     </ng-container>
-    <ng-template #confirmBlock>
-      <h3>Confirmed!</h3>
-      <p id="scheduler">You are scheduled with ACME Sales.</p>
-    </ng-template>
   </section>
 
   <div class="divider"></div>
     <ng-container [ngSwitch]="schedulerView">
 
       <section id="calendar-section" class="body-section" *ngSwitchCase="'CALENDAR'">
-        <h3>Select a Date & Time</h3>
+        <h3 class="calendar-cta desktop-txt">Select a Date & Time</h3>
+        <h3 class="calendar-cta mobile-txt">Press and hold a Date & Select Time</h3>
         <div id="schedule-div">
           <div *ngIf="showTimes" id="available-times-div">
             <p>{{dateSelected}}</p>
@@ -38,32 +37,44 @@
           </div>
           <full-calendar id="calendar" [options]="calendarOptions"></full-calendar>
         </div>
-        </section>
+      </section>
   
         <section id="register-section" class="body-section" *ngSwitchCase="'REGISTER'">
           <form action="confirm.html">
               <h3>Enter Details</h3>
               <label for="name">Name</label>
-              <input type="text" name="" id="name" class="mb-3" required>
+              <input [(ngModel)]="userName" type="text" name="name" id="name" class="mb-3" required />
               <label for="email">Email</label>
-              <input type="email" name="" id="email" required>
-              <button id="submit-btn" type="submit"
-                (click)="schedulerView='CONFIRM'">Schedule Event</button>
+              <input [(ngModel)]="userEmail" type="email" name="email" id="email" required />
+              <button 
+                [disabled]="(userName === undefined && userEmail === undefined) ? true : false"
+                [ngClass]="{'disabled': (userName === undefined || userEmail === undefined)}"
+                id="submit-btn" type="button" (click)=submitDetails() class="mt-3"
+              >Schedule Event
+              </button>
           </form>
         </section>
 
-        <section class="description-section" *ngSwitchCase="'CONFIRM'">
+        <section class="body-section confirm-section" *ngSwitchCase="'CONFIRM'">
           <div>
-              <h3 id="event">Pricing Review</h3>
-              <div class="icon-text-div">
-                  <img src="../../assets/clock.svg" alt="clock-icon">
-                  <h4 id="duration">15 min</h4>
-              </div><br>
-              <div class="icon-text-div">
-                  <img src="../../assets/calendar.svg" alt="calendar-icon">
-                  <h4 id="event-time-stamp">9:00am - 9:15am, Monday, July 13, 2020</h4>
-              </div>
-            </div>
-      </section>
+            <h3>Confirmed, {{userName}}!</h3>
+            <p id="scheduler">
+              You are scheduled with ACME Sales. A confirmation email will be sent to <br>
+              <strong class="mt-3">{{userEmail}}</strong>
+            </p>
+        
+          </div>
+          <!-- <add-to-calendar-button
+            name="Title"
+            options="'Apple','Google', 'Outlook.com'"
+            location="Telephone"
+            startDate="2023-12-31"
+            endDate="2023-12-31"
+            [startTime]="meetingDetails.startTime"
+            [endTime]="meetingDetails.endTime"
+            timeZone="currentBrowser"
+            size="5|5|3"
+          ></add-to-calendar-button> -->
+        </section>
     </ng-container>
 </div>

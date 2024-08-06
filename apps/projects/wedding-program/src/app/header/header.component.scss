@@ -1,5 +1,11 @@
 @import '../../styles.scss';
 
+.header-img {
+  width: 100%;
+  max-width: 400px;
+  object-fit: contain;
+}
+
 .heart {
 	animation: beat .5s infinite alternate;
 	transform-origin: center;

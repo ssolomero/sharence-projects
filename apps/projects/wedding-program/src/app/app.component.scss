@@ -69,6 +69,10 @@ body {
   -webkit-animation: slidein-from-right2 500ms;
   -o-animation: slidein-from-right2 500ms;
   animation: slidein-from-right2 500ms;
+  -moz-animation: slidein-from-middle 2000ms;
+  -webkit-animation: slidein-from-middle 2000ms;
+  -o-animation: slidein-from-middle 2000ms;
+  animation: slidein-from-middle 2000ms;
 }
 @-webkit-keyframes slidein-from-right2 {
   from {
@@ -102,6 +106,40 @@ body {
       transform:translateX(0%);
   }
 }
+@-webkit-keyframes slidein-from-middle {
+  from {
+      -webkit-transform:translateX(100%);
+  }
+  to {
+      -webkit-transform:translateX(0%);
+  }
+}
+@-moz-keyframes slidein-from-middle {
+  from {
+      -moz-transform:translateX(100%);
+  }
+  to {
+      -moz-transform:translateX(0%);
+  }
+}
+@-o-keyframes slidein-from-middle{
+  from {
+      -o-transform:translateX(100%);
+  }
+  to {
+      -o-transform:translateX(0%);
+  }
+}
+@keyframes slidein-from-middle {
+  from {
+      transform:translateX(100%);
+  }
+  to {
+      transform:translateX(0%);
+  }
+}
+
+
 .slidein-from-left {
   -webkit-animation: slidein-from-left2 500ms;
   -moz-animation: slidein-from-left2 500ms;

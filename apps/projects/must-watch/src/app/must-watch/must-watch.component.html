@@ -1,0 +1,69 @@
+<div class="container text-center my-5"> 
+  <div class="header">CrunchTime</div>
+
+  <div *ngIf="hasCloseGames" class="subheader mt-4">{{descriptionTxt}}</div>
+  <div *ngIf="!hasCloseGames && loaded" class="error-msg mt-4">sorry, we don't see any spicy games yet. <br> pls check back later.</div>
+
+  <svg *ngIf="!loaded">
+    <path 
+      class="loading-icon" fill="none" stroke="blue" 
+      stroke-width="4" d="M 50 50 v 50 h 50 v -50 z" 
+      transform="translate(75,0)"  />
+  </svg>
+
+  <ng-container *ngFor="let game of gamesToShow"> 
+    <div class="mx-auto my-3 text-center scoreboard" [ngClass]="{'empty': !hasCloseGames}">
+      <div class="row">
+        <div class="col-5">
+          <div class="team">{{game.teams.away.location}}</div>
+          <div class="team">{{game.teams.away.mascot}}</div>
+          <div class="score">{{game.scoreboard.score.away}}</div>
+        </div>
+        <div class="col-2 d-flex align-items-center justify-content-center flex-column">
+          <div class="league mb-2">{{game.details.league}}</div>
+          <div class="clock d-flex justify-content-center flex-column">
+            <div *ngIf="
+              (game.scoreboard.currentPeriod > leagueSettings[game.details.league]?.lastPeriod
+              && game.details.league != 'MLB'); then OT else currentPeriod"></div>
+            <ng-template #OT>OT</ng-template>
+            <ng-template #currentPeriod>{{game.scoreboard.currentPeriod}}{{leagueSettings[game.details.league]?.periodInitial}}</ng-template>
+            <div>{{game.scoreboard.periodTimeRemaining}}</div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="team">{{game.teams.home.location}}</div>
+          <div class="team">{{game.teams.home.mascot}}</div>
+          <div class="score">{{game.scoreboard.score.home}}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+
+<!-- <ng-template #noGamesBlock>
+  <ng-container *ngFor="let game of mockGaemes">
+    <div class="text-center scoreboard">
+      <div class="row">
+        <div class="col-5">
+          <div class="team">{{game.teams.away.location}}</div>
+          <div class="team">{{game.teams.away.mascot}}</div>
+          <div class="score">{{game.scoreboard.score.away}}</div>
+        </div>
+        <div class="col-2 d-flex align-items-center">
+          <div class="d-flex flex-column">
+            <div class="clock">Q{{game.scoreboard.currentPeriod}}</div>
+            <div class="clock">{{game.scoreboard.periodTimeRemaining}}</div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="team">{{game.teams.home.location}}</div>
+          <div class="team">{{game.teams.home.mascot}}</div>
+          <div class="score">{{game.scoreboard.score.home}}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template> -->
+
+

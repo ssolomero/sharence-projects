@@ -2,10 +2,11 @@ import { Component, OnInit, ViewEncapsulation, AfterViewChecked } from '@angular
 import { CalendarOptions } from '@fullcalendar/core'
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import 'add-to-calendar-button';
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const timesAvailable = ["9:00am", "10:00am", "11:00am", "2:00pm", "3:00pm"];
+const timesAvailable = ["09:00", "10:00", "11:00", "02:00", "03:00"];
 
 
 @Component({
@@ -27,14 +28,19 @@ export class SchedulerComponent implements OnInit, AfterViewChecked {
     },
     plugins: [dayGridPlugin, interactionPlugin],
     select: (info) => {this.onSelect(info);},
-    dateClick: (info) => {this.onSelect(info);}
+    // dateClick: (info) => {this.onSelect(info);}
   }
 
   meetingDetails:any = {
     scheduler: 'ACME Sales',
     event: 'Pricing Review',
     duration: 15,
-    description: 'Our team will meet with you to review pricing options.'
+    description: 'Our team will meet with you to review pricing options.',
+    date: new Date(),
+    startTime: "9:00",
+    endTime: "9:15",
+    startTimeTxt: "",
+    attendees: []
   }
 
   event = {
@@ -47,12 +53,16 @@ export class SchedulerComponent implements OnInit, AfterViewChecked {
     attendees: []
   };
 
-  timesAvailable = ["9:00am", "10:00am", "11:00am", "2:00pm", "3:00pm"];
+  timesAvailable = ["09:00 am", "10:00 am", "11:00 am", "2:00 pm", "3:00 pm"];
 
   showTimes = false;
   showConfirmBtn = false;
   dateSelected = '';
   schedulerView = 'CALENDAR';
+  lastConfirmBtn?:any;
+
+  userName?:string;
+  userEmail?:any;
 
   constructor() {
     sessionStorage.setItem("eventObj", JSON.stringify(event));
@@ -91,10 +101,11 @@ export class SchedulerComponent implements OnInit, AfterViewChecked {
 
   onSelectTime(event:any) {
     // this.showConfirmBtn = true;
-    let last:any = null;
-    if (last != null) {
-      console.log(last);
-      last.parentNode.removeChild(last.parentNode.lastChild);
+    if (this.lastConfirmBtn != null) {
+      console.log(this.lastConfirmBtn);
+      this.lastConfirmBtn.target.parentNode.removeChild(
+        this.lastConfirmBtn.target.parentNode.lastChild
+      );
     }
     let confirmBtn = document.createElement("button");
     let confirmTxt = document.createTextNode("Confirm");
@@ -103,15 +114,49 @@ export class SchedulerComponent implements OnInit, AfterViewChecked {
       "height: 50px; background-color: dodgerblue;color: white; font-size: 1rem; font-weight: 500; border-radius: 5px; border: none; flex: 1; width: 100%; margin-left: 5px;&:hover {opacity: 0.5;}&:focus {outline: 0;opacity: 0.5;}"
     confirmBtn.appendChild(confirmTxt);
     event.target.parentNode?.appendChild(confirmBtn);
-    this.event.time = event.textContent;
+    this.meetingDetails.startTimeTxt = event.target.textContent;
+    this.meetingDetails.startTime = this.convertTime(event.target.textContent, this.meetingDetails.duration);
     confirmBtn.addEventListener("click", () => { 
-      this.event.date = new Date(this.dateSelected);
-      sessionStorage.setItem("eventObj", JSON.stringify(this.event));
-      console.log(this.event);
+      this.meetingDetails.date = this.dateSelected;
+      sessionStorage.setItem("eventObj", JSON.stringify(this.meetingDetails));
+      console.log(this.meetingDetails);
       this.schedulerView = 'REGISTER';
     });
-    last = event;
+    this.lastConfirmBtn = event;
   }
 
+  submitDetails() {
+    if (this.userName && this.userEmail)
+      this.schedulerView = 'CONFIRM';
+  }
+
+  convertTime(timeStr: any, minutesToAdd:number) {
+    // Extracting hours, minutes, and am/pm parts
+    let [time, period] = timeStr.split(' ');
+    let [hours, minutes] = time.split(':');
+    
+    // Converting hours to 24-hour format
+    hours = parseInt(hours, 10);
+    minutes = parseInt(minutes, 10);
+
+    if (period.toLowerCase() === 'pm' && hours !== 12) {
+      hours += 12;
+    } else if (period.toLowerCase() === 'am' && hours === 12) {
+      hours = 0;
+    }
+    
+    // Formatting the result as a 24-hour time string
+    let time24hr = ('00' + hours).slice(-2) + ':' + ('00' + minutes).slice(-2);
+
+    // Set end time
+
+    minutes += minutesToAdd;
+    hours += Math.floor(minutes / 60);
+    minutes %= 60;
+    
+    this.meetingDetails.endTime = ('00' + hours).slice(-2) + ':' + ('00' + minutes).slice(-2);
+
+    return time24hr;
+  }
 
 }

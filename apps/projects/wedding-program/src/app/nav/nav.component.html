@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="container text-center">
-  <div class="nav-menu slidein-from-left" *ngFor="let navItem of navItems">
+  <div class="nav-menu" *ngFor="let navItem of navItems">
     <div routerLink="{{navItem.route}}" class="nav-item my-4 d-flex">{{navItem.title}}</div>
   </div>
 </div>

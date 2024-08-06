@@ -79,7 +79,7 @@ input {
 
 .divider {
   height: 100%;
-  border-left: solid .5px whitesmoke;  
+  border-left: solid .5px lightgray;  
 }
 
 .container {
@@ -145,24 +145,40 @@ hgroup {
   }
 }
 
+.desktop-txt {
+  display: block;
+}
+
+.mobile-txt {
+  display: none;
+}
+
 @media (max-width: 1250px) {
   .container {
       display: block;
       height: 85vh;
-      text-align: center;
       width: 645px;
       margin: 50px auto;
       overflow-y: scroll;
   }
 
+  .calendar-cta {text-align: center;}
+
   .description-section {
       padding-top: 30px;
-      margin: 30px 100px;
+  }
+
+  .details-section {
+    text-align: center;
   }
 
   .body-section {
       margin: 30px 50px;
       align-items: center;
+  }
+
+  .confirm-section {
+    text-align: center;
   }
 
   .icon-text-div {
@@ -171,7 +187,18 @@ hgroup {
 
   .divider {
       height: auto;
-      border-top: solid .5px whitesmoke;  
+      border-top: solid .5px lightgray;  
+  }
+  .confirm-section {
+    text-align: center;
+  }
+
+  .desktop-txt {
+    display: block;
+  }
+
+  .mobile-txt {
+    display: none;
   }
 }
 
@@ -195,6 +222,14 @@ hgroup {
   .body-section {
       padding: 0;
       margin: 30px 2%;
+  }
+
+  .desktop-txt {
+    display: none;
+  }
+
+  .mobile-txt {
+    display: block;
   }
 }
 
@@ -356,7 +391,7 @@ font-weight: 300;
   }
 }
 
-@media (max-width: 645px) {
+@media screen and (max-width: 645px) {
       
   #schedule-div {
       display: block;
@@ -384,4 +419,8 @@ button[type="submit"] {
       outline: 0;
       opacity: 0.5;
   }
+}
+
+.disabled {
+  opacity: 50%;
 }

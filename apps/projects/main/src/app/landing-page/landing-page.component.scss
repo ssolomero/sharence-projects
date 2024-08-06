@@ -1,25 +1,100 @@
 h4 {
   margin-bottom: 0;
 }
+ul {
+  margin: 0;
+}
+a {
+  font-family: "Contrail One", sans-serif;
+}
+
+// #project-div {
+//   a:hover {
+//     transform: translateX(50px);
+//     transition: transform 0.5s linear;
+  
+//   } 
+// }
+
+.project-link {
+  color: gray;
+  margin-right: 15px;
+}
+.project-link:hover  {
+  margin-left: 10px;
+  transition-duration: 0.2s;
+  color: black;
+}
 
 .container {
   margin: auto;
 }
 
 .info {
-  padding: 0 5em;
-  margin-top: 17em;
+  margin: auto;
+  text-align: center;
+  margin-top: 7em;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  flex-wrap: wrap;
+}
 
-  @media (max-width: 768px) { 
-    margin: 17em auto;
+.about-me {
+  font-family: "Contrail One", sans-serif;
+  font-size: 14px;
+  margin-top: 40px;
+  margin-left: 10px;
+  max-width: 500px;
+}
 
-    .title-div {
-      margin-bottom: 20px;
-    }
+.title-div {
+  background-color:white;
+  --color-text: #a5a5a5;
+  --color-bg: white;
+  --color-link: #ea34a6;
+  --color-link-hover: #fff;
+  --color-font-circle: #7b7772;
+  --color-button: #ea34a6;
+  --color-text-button: white;
+  --color-text-circle: black;
+  --font-circle: ambroise-firmin-std, serif;
+  --font-weight-circle: 300;
+  font-family: "Contrail One", sans-serif;
+
+  a {
+    text-decoration: none;
+    // color: grayscale($color: #000000);
+    font-size: 12px;
   }
 }
 
-#project-list {
-  padding: 0;
-  list-style-type: none;
+.circle-section {
+  pointer-events: none;
+  // --dim: 50vmin;
+  width: 150px; //var(--dim);
+  height: 150px; //var(--dim);
+  top: 0;
+  left: 0;
+}
+
+.circles__text {
+  text-transform: uppercase;
+  transform-origin: 700px 700px;
+  will-change: transform, opacity;
+}
+
+.circles__text {
+  font-size: 120px;
+  font-family: "Contrail One", sans-serif;//var(--font-circle);
+  font-weight: var(--font-weight-circle);
+  fill: var(--color-text-circle);
+}
+
+img {
+  cursor: pointer;
+}
+
+.main-view {
+  overflow-x: scroll;
+  overflow-y: hidden;
 }

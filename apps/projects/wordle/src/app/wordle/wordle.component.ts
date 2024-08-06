@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked} from '@angular/core';
 import {WORDLES} from './worlde.config';
+import { WordleService } from './wordle.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-wordle',
@@ -14,23 +16,38 @@ export class WordleComponent implements OnInit, AfterViewChecked{
   numOfLetters: number = 5; //letter word
   numOfGuesses: number = 6; //amount of tries
   numOfAttempts: number = 0; //attempts taken
-  wordleIndex: number = Math.floor(Math.random()*WORDLES.length);
-  wordle:string = WORDLES[this.wordleIndex];
+  // wordleIndex: number = Math.floor(Math.random()*WORDLES.length);
+  wordle:string = '';
   guessedWord: string = '';
   // wordle:string = 'FLEET';
 
-  wordleArr: string[] = [...this.wordle];
+  wordleArr:string[] = [];
   guessArr: string[] = [];
-  guessesStr: string = 'ocWordle #'+this.wordleIndex;
+  guessesStr: string = '';
 
   toast: string = 'end game';
   endGame: boolean = false;
 
-  constructor() {}
+  constructor(private wordleService: WordleService) {}
 
   ngOnInit(): void {
+    this.wordleService.getWord().pipe().subscribe({
+      next: (word:any) => {
+        this.wordle = word.toUpperCase();
+        this.wordleArr = [...this.wordle];
+      }, 
+      error: (err:any) => {
+        if (err.error.text) {
+          this.wordle = err.error.text.toUpperCase();
+          this.wordleArr = [...this.wordle];
+          console.log(this.wordle);
+        } else {
+          this.wordle = 'hello';
+          this.wordleArr = [...this.wordle];
+        }
+      }
+    })
     this.numOfAttempts = 0;
-    console.log(this.wordle);
   }
 
   ngAfterViewChecked() {

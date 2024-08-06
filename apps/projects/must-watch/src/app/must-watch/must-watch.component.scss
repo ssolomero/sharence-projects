@@ -1,0 +1,78 @@
+body {
+  background-color: black;
+}
+
+.header {
+  font-family: 'Monomaniac One', sans-serif;
+  color: blue;
+  font-size: xx-large;
+}
+
+.subheader {
+  font-family: monospace;
+  font-size: medium;
+}
+
+.error-msg {
+  font-family: monospace;
+  color: orangered;
+  opacity: 100% !important;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.scoreboard {
+  border-bottom: solid 8px ghostwhite;
+  border-top: solid 3px ghostwhite;
+  border-radius: 20px;
+  padding: 15px;
+  max-width: 500px;
+}
+
+.league {
+  color: blue;
+  font-family: 'Monomaniac One', sans-serif;
+  font-size: smaller;
+}
+
+.score {
+  font-weight: bold;
+  font-size: x-large;
+  color: blue;
+  font-family: 'Monomaniac One', sans-serif;
+}
+
+.clock {
+  font-size: smaller;
+  color: white;
+  background-color: blue;
+  font-family: 'Monomaniac One', sans-serif;
+  height: 50px;
+  width: 50px;
+  box-shadow: 1px 1px 3px blue;
+}
+
+.team {
+  font-size: smaller;
+  color:black;
+  font-weight: bold;
+}
+
+.empty {
+  opacity: .15;
+}
+
+.loading-icon {
+  // stroke-dasharray: 200;
+  // stroke-dashoffset: -200;
+  stroke-dasharray: 100;
+  animation: draw-square 1s infinite;
+  left: 50;
+}
+
+@keyframes draw-square {
+  to {
+    stroke-dashoffset: 200;
+  }
+}
+
