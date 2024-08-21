@@ -9,12 +9,14 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // must go before pl
 import { WordleAppSharedModule } from '../../../wordle/src/app/app.module';
 import { CalendlyAppSharedModule } from '../../../calendly/src/app/app.module';
 import { MustWatchAppSharedModule } from '../../../must-watch/src/app/app.module';
-import { LandingPageComponent } from './landing-page/landing-page.component'
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BallBounceLoadComponent } from '../../../micro-components/src/app/ball-bounce-load/ball-bounce-load.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    BallBounceLoadComponent
   ],
   imports: [
     BrowserModule,

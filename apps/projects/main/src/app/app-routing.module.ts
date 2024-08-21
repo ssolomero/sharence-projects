@@ -7,6 +7,7 @@ import { CalendlyAppSharedModule } from 'projects/calendly/src/app/app.module';
 import { WeddingProgramAppSharedModule } from 'projects/wedding-program/src/app/app.module';
 import { MustWatchAppSharedModule } from 'projects/must-watch/src/app/app.module'
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BallBounceLoadComponent } from 'projects/micro-components/src/app/ball-bounce-load/ball-bounce-load.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'must-watch',
     loadChildren: () => import('../../../must-watch/src/app/app.module').then(x => x.MustWatchAppSharedModule)
+  },
+  {
+    path: 'bouncing-ball-load',
+    component: BallBounceLoadComponent,
   },
   {
     path: '',
