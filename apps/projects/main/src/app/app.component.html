@@ -1,7 +1,20 @@
-<a 
-  routerLink="/" 
-  class="home-link"
->Home</a>
+<ng-container *ngIf="!loadingScreen">
+  <a
+    routerLink="/" 
+    class="home-link"
+  >Home</a>
+  <router-outlet></router-outlet>
+</ng-container>
 
-<router-outlet></router-outlet>
+
+<div *ngIf="loadingScreen" class="container" id="title" style::before="width: 100%"><span>Sharence's Wiki</span></div>
+
+ <!-- <ng-template #landingPage>
+    <a 
+      routerLink="/" 
+      class="home-link"
+    >Home</a>
+    <router-outlet></router-outlet>
+ </ng-template> -->
+
 

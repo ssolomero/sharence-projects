@@ -11,3 +11,73 @@
 .home-link:hover {
   color:black;
 }
+
+// #loadingText {
+//   font-family: "Contrail One", sans-serif;
+//   font-size: 100px;
+//   margin: auto;
+//   -webkit-text-stroke-width: 2px;
+//   -webkit-text-stroke-color: ghostwhite;
+//   display: inline-block;
+//   margin: 10px;
+//   position: relative;
+//   background-image: linear-gradient(to right, red, red);
+//   background-size: 200% 200%;
+//   background-repeat: no-repeat;
+//   background-position: 200% 0%;
+//   overflow: hidden;
+//   transition: 1s;
+// }
+
+// #loadingText span {
+//   display: inline-block;
+//   color: black;
+//   background-color: black;
+//   mix-blend-mode: lighten;
+// }
+
+#loadingText:hover {
+  background-position:-100% 0%;
+}
+
+#title {
+  position: relative;
+  font-family: "Contrail One", sans-serif;
+  font-size: 60px;
+  // -webkit-text-stroke-width: 2px;
+  // -webkit-text-stroke-color: black;
+  color: lightgray;
+  margin-top: 70px;
+  padding-left: 19px;
+
+  &:before {
+    font-family: "Contrail One", sans-serif;
+    content: "Sharence's Wiki";
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    color: black;
+    animation: fillTitle  ease-in-out 10s;
+    // transition: width 8s ease-in-out;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
+.pageView {
+  animation: fadeIn 15s;
+  -webkit-animation: fadeIn 10s;
+  -moz-animation: fadeIn 10s;
+  -o-animation: fadeIn 10s;
+  -ms-animation: fadeIn 10s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0%; }
+  to { opacity: 100%; }
+}
+
+@keyframes fillTitle {
+from {width: 0%}
+to {width: 100%} 
+}

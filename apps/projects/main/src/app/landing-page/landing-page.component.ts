@@ -11,6 +11,7 @@ export class LandingPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
     gsap.set("text.circles__text", { transformOrigin: "50% 50%" });
     gsap.to("text.circles__text", {
       duration: 10,
