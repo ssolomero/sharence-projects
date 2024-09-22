@@ -49,45 +49,14 @@ a {
 
 .title-div {
   background-color:white;
-  --color-text: #a5a5a5;
-  --color-bg: white;
-  --color-link: #ea34a6;
-  --color-link-hover: #fff;
-  --color-font-circle: #7b7772;
-  --color-button: #ea34a6;
-  --color-text-button: white;
-  --color-text-circle: black;
-  --font-circle: ambroise-firmin-std, serif;
-  --font-weight-circle: 300;
   font-family: "Contrail One", sans-serif;
+  margin-top: 45px;
 
   a {
     text-decoration: none;
     // color: grayscale($color: #000000);
     font-size: 12px;
   }
-}
-
-.circle-section {
-  pointer-events: none;
-  // --dim: 50vmin;
-  width: 150px; //var(--dim);
-  height: 150px; //var(--dim);
-  top: 0;
-  left: 0;
-}
-
-.circles__text {
-  text-transform: uppercase;
-  transform-origin: 700px 700px;
-  will-change: transform, opacity;
-}
-
-.circles__text {
-  font-size: 120px;
-  font-family: "Contrail One", sans-serif;//var(--font-circle);
-  font-weight: var(--font-weight-circle);
-  fill: var(--color-text-circle);
 }
 
 img {
@@ -106,15 +75,13 @@ img {
 #title {
   position: relative;
   font-family: "Contrail One", sans-serif;
-  font-size: 60px;
+  font-size: 3.5rem;
   // -webkit-text-stroke-width: 2px;
   // -webkit-text-stroke-color: black;
   color: black;
-  margin-top: 45px;
+  // margin-top: 45px;
   padding-left: 10px;
 }
-
-
 
 @keyframes fillTitle {
 from {width: 0%}
@@ -132,4 +99,13 @@ to {width: 100%}
 @keyframes fadeIn {
   from { opacity: 0%; }
   to { opacity: 100%; }
+}
+
+@media only screen and (max-width: 576px) {
+  #title {
+    font-size: 30px;
+  }
+  .contact {
+    flex-direction: column;
+  }
 }

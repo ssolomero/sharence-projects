@@ -12,30 +12,6 @@
   color:black;
 }
 
-// #loadingText {
-//   font-family: "Contrail One", sans-serif;
-//   font-size: 100px;
-//   margin: auto;
-//   -webkit-text-stroke-width: 2px;
-//   -webkit-text-stroke-color: ghostwhite;
-//   display: inline-block;
-//   margin: 10px;
-//   position: relative;
-//   background-image: linear-gradient(to right, red, red);
-//   background-size: 200% 200%;
-//   background-repeat: no-repeat;
-//   background-position: 200% 0%;
-//   overflow: hidden;
-//   transition: 1s;
-// }
-
-// #loadingText span {
-//   display: inline-block;
-//   color: black;
-//   background-color: black;
-//   mix-blend-mode: lighten;
-// }
-
 #loadingText:hover {
   background-position:-100% 0%;
 }
@@ -43,12 +19,10 @@
 #title {
   position: relative;
   font-family: "Contrail One", sans-serif;
-  font-size: 60px;
-  // -webkit-text-stroke-width: 2px;
-  // -webkit-text-stroke-color: black;
+  font-size: 3.5rem;
   color: lightgray;
   margin-top: 70px;
-  padding-left: 19px;
+  padding-left: 12px;
 
   &:before {
     font-family: "Contrail One", sans-serif;
@@ -65,11 +39,11 @@
 }
 
 .pageView {
-  animation: fadeIn 15s;
+  animation: fadeIn 10s;
   -webkit-animation: fadeIn 10s;
   -moz-animation: fadeIn 10s;
   -o-animation: fadeIn 10s;
-  -ms-animation: fadeIn 10s;
+  -ms-animation: fadeIn 160s;
 }
 
 @keyframes fadeIn {
@@ -80,4 +54,15 @@
 @keyframes fillTitle {
 from {width: 0%}
 to {width: 100%} 
+}
+
+@media only screen and (max-width: 576px) {
+  #title {
+    font-size: 30px;
+
+    &:before {
+      animation: fillTitle  ease-in-out 8s;
+    }
+  }
+
 }
