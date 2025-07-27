@@ -1,36 +1,48 @@
-<div class="container">
-  <div class="title-div d-flex align-items-center justify-content-between row">
+<div class="container m-auto">
+  <div class="title-div">
 
-    <div class="col-8" id="title"><span>Sharence's Wiki</span></div>
+    <div class="col-8" id="title">
+      <span>Sharence's Wiki</span>
+    </div>
 
-    <div class="pageView d-flex justify-content-end align-items-end col-4 contact"> 
+    <hr class="my-2">
+
+  </div>
+
+  <div class="details py-3">
+    <img src="../../assets/propic.jpg" alt="img" class="propic pb-2">
+    <div class="mb-2"><strong>Sharence S.</strong></div>
+    <div><strong>Occupation:</strong> Software Developer</div>
+    <div><strong>Experience:</strong> 5 years</div>
+    <div><strong>College:</strong> Georgia Tech</div>
+    <div><strong>Location:</strong> Austin, TX</div>
+    <div class="d-flex contact mt-3"> 
       <a href="https://github.com/ssolomero" target="_blank" class="project-link">github.</a>
       <a href="https://www.linkedin.com/in/sharence-solomero/" target="_blank" class="project-link">linkedin.</a>
       <a href="mailto:ssolomero@gmail.com" class="project-link">email.</a>
     </div>
   </div>
   
-  <div class="row about-me pageView">
-    <div class="col-12">
-      Hello! I'm Sharence, a passionate frontend developer with three years of experience, and a year of 
-      experience as a product designer. I've had the opportunity to contribute to new 
-      features for <span><a href="https://www.chevrolet.com/ownercenter/onstar/learn?evar18=ch_global-nav_onstar">GM's Owner Center shop experience</a></span>. I have a keen eye for breathtaking digital user 
-      experiences and elegant micro-interactions. Below, you’ll find a selection of lightweight projects 
-      that have honed my skills as a developer. Thank you for visiting!
+  <div class="about-me">
+      <div class="">
+        Hello! I'm Sharence, a passionate frontend developer with a background in product design. I've had the opportunity to contribute to new 
+        features for <span><a href="https://www.chevrolet.com/ownercenter/onstar/learn?evar18=ch_global-nav_onstar">GM's Owner Center shop experience</a></span>. I have a keen eye for breathtaking digital user 
+        experiences and elegant micro-interactions. Below, you’ll find a selection of lightweight projects 
+        that have honed my skills as a developer. Thank you for visiting!
+      </div>
+  </div>
+
+  <div id="projects" class="ml-5">
+    <div class="mt-4 mb-2">
+      <div class="projects-header">Projects</div>
+      <hr class="my-2">
     </div>
-  </div>
-
-  <div class="info ml-5 pageView">
-        <div class="">
-            <a href="" routerLink="/wordle" class="project-link">Wordle</a>
-            <a href="" routerLink="/calendly" class="project-link">Calendly</a>
-            <a href="" routerLink="/wedding" class="project-link">Wedding</a>
-            <a href="" routerLink="/must-watch" class="project-link">Crunch Time</a>
-            <a href="https://ssolomero.github.io/" target="blank" class="project-link">
-              College Portfolio
-            </a>
-            <a href="" routerLink="/bouncing-ball-load" class="project-link">Load Animation</a>
-        </div>
-  </div>
-
+    <div *ngFor="let project of projects" class="project-div">
+      <a *ngIf="project?.href" href={{project?.href}} class="project-link" target="_blank">{{project.title}}</a>
+      <a *ngIf="project?.route" routerLink={{project?.route}} class="project-link">{{project.title}}</a>
+      <div>{{project.description}}</div>
+      <div>
+        <span *ngFor="let tag of project.tags" class="badge badge-pill bg-secondary">{{tag}}</span>
+      </div>
+    </div>
 </div>

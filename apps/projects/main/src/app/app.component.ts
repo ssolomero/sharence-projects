@@ -8,11 +8,10 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'main';
 
-  loadingScreen = true;
 
   ngOnInit() {
-    setTimeout(() => {
-      this.loadingScreen = false;
-    }, 3900);
+    // setTimeout(() => {
+    //   this.loadingScreen = false;
+    // }, 2000);
   }
 }

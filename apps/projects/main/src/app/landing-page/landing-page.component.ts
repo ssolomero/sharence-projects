@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { gsap } from 'gsap';
+import { PROJECT_DESCRIPTIONS } from '../CMS';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,17 +8,12 @@ import { gsap } from 'gsap';
 })
 export class LandingPageComponent implements OnInit {
 
+  projects = PROJECT_DESCRIPTIONS;
+
   constructor() { }
 
   ngOnInit(): void {
     
-    gsap.set("text.circles__text", { transformOrigin: "50% 50%" });
-    gsap.to("text.circles__text", {
-      duration: 10,
-      ease: "none",
-      rotation: "+=360",
-      repeat: -1
-    });
   }
 
 }

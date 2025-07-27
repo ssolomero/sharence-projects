@@ -4,7 +4,6 @@
 
 .home-link {
   padding: 5px 0 0 5px;
-  font-family: 'Contrail One', sans-serif;
   color: gray;
 }
 
@@ -18,33 +17,12 @@
 
 #title {
   position: relative;
-  font-family: "Contrail One", sans-serif;
-  font-size: 3.5rem;
+  font-size: 2rem;
   color: lightgray;
   margin-top: 70px;
   padding-left: 12px;
-
-  &:before {
-    font-family: "Contrail One", sans-serif;
-    content: "Sharence's Wiki";
-    position: absolute;
-    z-index: 2;
-    overflow: hidden;
-    color: black;
-    animation: fillTitle  ease-in-out 10s;
-    // transition: width 8s ease-in-out;
-    white-space: nowrap;
-    width: 100%;
-  }
 }
 
-.pageView {
-  animation: fadeIn 10s;
-  -webkit-animation: fadeIn 10s;
-  -moz-animation: fadeIn 10s;
-  -o-animation: fadeIn 10s;
-  -ms-animation: fadeIn 160s;
-}
 
 @keyframes fadeIn {
   from { opacity: 0%; }

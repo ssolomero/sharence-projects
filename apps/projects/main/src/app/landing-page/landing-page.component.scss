@@ -4,30 +4,33 @@ h4 {
 ul {
   margin: 0;
 }
-a {
-  font-family: "Contrail One", sans-serif;
+
+#projects {
+  margin-bottom: 100px;
 }
-
-// #project-div {
-//   a:hover {
-//     transform: translateX(50px);
-//     transition: transform 0.5s linear;
-  
-//   } 
-// }
-
+.project-div {
+  font-size: 14px;
+  line-height: 1.8rem;
+  margin-bottom: 20px;
+}
 .project-link {
   color: gray;
   margin-right: 15px;
+  font-size: 16px;
 }
 .project-link:hover  {
   margin-left: 10px;
   transition-duration: 0.2s;
   color: black;
 }
+.projects-header {
+  font-family: serif;
+  font-size: 1.5rem;
+}
 
 .container {
   margin: auto;
+  max-width: 800px;
 }
 
 .info {
@@ -35,26 +38,38 @@ a {
   text-align: center;
   margin-top: 7em;
   margin-bottom: 20px;
-  margin-left: 40px;
   flex-wrap: wrap;
+  font-size: 14px;
 }
 
 .about-me {
-  font-family: "Contrail One", sans-serif;
+  // font-family: "Contrail One", sans-serif;
   font-size: 14px;
-  margin-top: 40px;
-  margin-left: 10px;
-  max-width: 500px;
+  margin-top: 15px;
+  line-height: 1.8rem;
+}
+
+.details {
+  background-color: whitesmoke;
+  border: 1px solid lightgray;
+  float: right;
+  max-width: 250px;
+  margin: 0 0 0 10px;
+  padding: 10px;
+  line-height: 1.5rem;
+  font-size: 14px;
+}
+
+.propic {
+  width: 100%;
 }
 
 .title-div {
   background-color:white;
-  font-family: "Contrail One", sans-serif;
   margin-top: 45px;
 
   a {
     text-decoration: none;
-    // color: grayscale($color: #000000);
     font-size: 12px;
   }
 }
@@ -73,27 +88,16 @@ img {
 }
 
 #title {
-  position: relative;
-  font-family: "Contrail One", sans-serif;
-  font-size: 3.5rem;
-  // -webkit-text-stroke-width: 2px;
-  // -webkit-text-stroke-color: black;
+  font-family: serif;
+  font-size: 2rem;
   color: black;
-  // margin-top: 45px;
-  padding-left: 10px;
 }
 
-@keyframes fillTitle {
-from {width: 0%}
-to {width: 100%} 
-}
-
-.pageView {
-  animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;
+.badge-pill {
+  border-radius: 1rem;
+  font-size: 12px;
+  margin: 0 5px 0 0;
+  font-weight: 400;
 }
 
 @keyframes fadeIn {
@@ -105,7 +109,9 @@ to {width: 100%}
   #title {
     font-size: 30px;
   }
-  .contact {
-    flex-direction: column;
+  .details {
+    float: unset;
+    margin: auto;
+    order: 2;
   }
 }
