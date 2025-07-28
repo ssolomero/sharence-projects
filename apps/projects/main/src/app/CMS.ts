@@ -14,6 +14,13 @@ export const PROJECT_DESCRIPTIONS = [
     tags: ['Form', 'Full Calendar', 'Session Storage']
   },
   {
+    title: 'Fantasy Golf',
+    route: '',
+    href: 'https://bulgeopen.com/',
+    description: "Hosting a Master's fantasy golf tournment while learning React! Players were able to view their teams' live scores.",
+    tags: ['React', 'Sorting']
+  },
+  {
     title: 'Wedding',
     route: '/wedding',
     href: '',
