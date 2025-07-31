@@ -1,4 +1,11 @@
 export const PROJECT_DESCRIPTIONS = [
+    {
+    title: 'Fantasy Golf',
+    route: '',
+    href: 'https://bulgeopen.com/',
+    description: "Hosting a Master's fantasy golf tournment while learning React! Players were able to view their teams' live scores.",
+    tags: ['React', 'Sorting', 'Next.js', 'MongoDB']
+  },
   {
     title: 'Wordle',
     route: '/wordle',
@@ -12,13 +19,6 @@ export const PROJECT_DESCRIPTIONS = [
     href: '',
     description: 'Fun Fact: This project has earned 57 stars and 20 forks on GitHub! 🎉 I wanted to recreate the Calendly UI experience because I enjoyed the smooth, seamless interactions when scheduling a meeting. When selecting a date, the time options slide in elegantly from the right. Then when you select a time, cancel/confirm buttons populate the space requiring minimal movement from the user. To mimic this, I integrated the FullCalendar package and leveraged session storage to persist and pass along event details between views.',
     tags: ['Form', 'Full Calendar', 'Session Storage']
-  },
-  {
-    title: 'Fantasy Golf',
-    route: '',
-    href: 'https://bulgeopen.com/',
-    description: "Hosting a Master's fantasy golf tournment while learning React! Players were able to view their teams' live scores.",
-    tags: ['React', 'Sorting']
   },
   {
     title: 'Wedding',
